@@ -1,0 +1,2 @@
+page.insert_html :bottom, "category-entries-#{@category.id}", :partial => 'entry'
+page.visual_effect :highlight, "entry-#{@entry.id}"

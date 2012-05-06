@@ -1,0 +1,13 @@
+<h1>Meal Planner</h1>
+<% for category in @categories %>
+<div id="category-<%= category.id %>">
+	<b><%=h category.name %></b> Total Calories: <%= category.foods.sum('calories') %><br />
+	<ul id="category-entries-<%= category.id %>"><%= render :partial => "entry", :collection => category.entries %></ul>
+		<% form_remote_tag(:update => 'categories', 
+		                         :url => { :action => :create } ) do %>
+			<%= hidden_field_tag 'food[category]', category.id %>
+		          <%= text_field_with_auto_complete :food, :name %>
+		    <%= submit_tag "Add" %>
+		<% end %>
+	</div>
+	<% end %>

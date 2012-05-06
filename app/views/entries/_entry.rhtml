@@ -1,0 +1,4 @@
+<li id="entry-<%= entry.id %>">
+	<%=h entry.food.name %> 
+	<%= link_to_remote 'Delete this entry', :url => {:action => 'destroy', :id => entry}, :confirm => 'Are you sure you want to delete this entry?' %>
+</li>
